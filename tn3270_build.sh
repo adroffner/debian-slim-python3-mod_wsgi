@@ -5,11 +5,6 @@
 # See: x3270 Project and provide the "headless" s3270 command only.
 # =============================================================================
 
-if [ -z "${IBM_3270}" ]; then
-    echo "OPTIONAL IBM-3270 support ... skipping"
-    exit 0 # not an error
-fi
-
 echo "IBM-3270 headless terminal support ... adding"
 
 X3270_VERSION="3.6ga5"

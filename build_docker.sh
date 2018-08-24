@@ -16,6 +16,10 @@ TAG="3.6.6"
 if [ -n "${IBM_3270}" ]; then
 	echo "IBM 3270 support"
 	IMAGE_NAME="${IMAGE_NAME}-ibm3270"
+	DOCKERFILE=Dockerfile.ibm-3270
+else
+	# Just build main project.
+	DOCKERFILE=Dockerfile
 fi
 
 
@@ -25,4 +29,5 @@ docker login -u m12292@argos.dev.att.com -p 3W2-CDP-naF-3aN -e m12292@att.com ${
 
 docker build -t $FULL_IMAGE_NAME ./ \
     --build-arg http_proxy=$http_proxy \
-    --build-arg https_proxy=$https_proxy
+    --build-arg https_proxy=$https_proxy \
+    -f ${DOCKERFILE}

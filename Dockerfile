@@ -24,11 +24,6 @@ RUN apt-get -y install apache2 apache2-dev
 # =============================================================================
 RUN /usr/local/bin/pip3 install mod_wsgi
 
-# OPTIONAL Install IBM-3270 "telnet 3270" support.
-# =============================================================================
-COPY ./tn3270_build.sh /usr/src/tn3270_build.sh
-RUN /usr/src/tn3270_build.sh
-
 # "www-data" runs a sample "hello world" WSGI script.
 # =============================================================================
 WORKDIR /home/www-data
