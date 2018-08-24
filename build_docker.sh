@@ -5,10 +5,19 @@
 # Build docker image
 # =============================================================================
 
+# IBM-3270 support when non-empty string.
+IBM_3270=""
+
 REGISTRY="dockercentral.it.att.com:5100"
 NAMESPACE="com.att.dev.argos"
 IMAGE_NAME="debian-slim-python3-mod_wsgi"
 TAG="3.6.6"
+
+if [ -n "${IBM_3270}" ]; then
+	echo "IBM 3270 support"
+	IMAGE_NAME="${IMAGE_NAME}-ibm3270"
+fi
+
 
 FULL_IMAGE_NAME="${REGISTRY}/${NAMESPACE}/${IMAGE_NAME}:${TAG}"
 
